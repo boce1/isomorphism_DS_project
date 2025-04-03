@@ -16,6 +16,12 @@ Each algorithm is implemented in its own separate package, and the main test scr
 - `vf2/` - Contains the implementation for the VF2 algorithm.
 - `main.py` - The main script that runs the tests for all three algorithms.
 
+Each algorithm is implemented by a different contributor, with each contributing one algorithm. The main test script is located in main.py.
+
+Боян Зарев, факултетен номер: 123222004 -`color_refinement/`
+Светлин Иванов, факултетен номер: 121222088 - `adjacency_matrix_comparison/`
+Ивайлов Николов, факултетен номер: 121222009 - `vf_2`
+
 ## How to Run
 
 1. Clone the repository to your local machine:
@@ -35,7 +41,3 @@ Each algorithm is implemented in its own separate package, and the main test scr
    ```
 
 This will execute the tests for all three algorithms and print the results.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
