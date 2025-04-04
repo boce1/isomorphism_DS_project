@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib.colors import CSS4_COLORS
+from random import seed, shuffle
 
 def refine_labels(graph, node_labels):
     '''
@@ -66,9 +67,12 @@ def wl_test(G1, G2, max_iterations=20, visualize=False):
 
 
 # function for visualizing
-layout_seed1 = 12
-layout_seed2 = 8
+layout_seed1 = 0
+layout_seed2 = 1
+seed(1)
 css_colors = list(CSS4_COLORS.keys())
+shuffle(css_colors)
+
 def draw_color_graph(graph, labels):
     colors = []
     for node in graph.nodes:
@@ -100,19 +104,40 @@ def draw_color_2_graph(graph1, graph1_labels, graph2, graph2_labels):
     plt.title("Graph 1")
 
     subax2 = plt.subplot(222)
-    nx.draw(graph1, pos=pos_graph2, with_labels=True, node_color=colors_graph2)
+    nx.draw(graph2, pos=pos_graph2, with_labels=True, node_color=colors_graph2)
     plt.title("Graph 2")
 
+
+    color1_occurrences = {}
+    for c in colors_graph1:
+        if c not in color1_occurrences:
+            color1_occurrences[c] = 1
+        else:
+            color1_occurrences[c] += 1
+    color2_occurrences = {}
+    for c in colors_graph2:
+        if c not in color2_occurrences:
+            color2_occurrences[c] = 1
+        else:
+            color2_occurrences[c] += 1
+
+    colors1_bar = sorted(color1_occurrences.keys(), key=lambda x: color1_occurrences[x])
+    colors2_bar = sorted(color2_occurrences.keys(), key=lambda x: color2_occurrences[x])
+
     subax3 = plt.subplot(223)
-    plt.bar(colors_graph1, [colors_graph1.count(c) for c in colors_graph1], color=colors_graph1, width=0.6)
-    plt.xticks(rotation=-45, fontsize=8)
+    plt.bar(colors1_bar, [color1_occurrences[c] for c in colors1_bar], color=colors1_bar, width=0.6)
+    plt.xticks(rotation=-45, fontsize=8, ha='left')
     plt.ylabel("Occurrences")
+    plt.ylim(0, len(graph1))
     plt.title("Graph 1 Color chart")
+    plt.margins(x=0.05)
 
     subax4 = plt.subplot(224)
-    plt.bar(colors_graph2, [colors_graph2.count(c) for c in colors_graph2], color=colors_graph2, width=0.6)
-    plt.xticks(rotation=-45, fontsize=8)
+    plt.bar(colors2_bar, [color2_occurrences[c] for c in colors2_bar], color=colors2_bar, width=0.6)
+    plt.xticks(rotation=-45, fontsize=8, ha='left')
     plt.ylabel("Occurrences")
+    plt.ylim(0, len(graph2))
     plt.title("Graph 2 Color chart")
+    plt.margins(x=0.05)
 
     plt.show()
