@@ -14,6 +14,7 @@ Each algorithm is implemented in its own separate package, and the main test scr
 - `color_refinement/` - Contains the implementation for the Color Refinement algorithm.
 - `adjacency_matrix_comparison/` - Contains the implementation for marking the adjacency matrix using BFS or DFS.
 - `vf2/` - Contains the implementation for the VF2 algorithm.
+- `test_graphs/` - Contains test graphs and neccessery functions for creating and visualizing them
 - `main.py` - The main script that runs the tests for all three algorithms.
 
 ## Contributors

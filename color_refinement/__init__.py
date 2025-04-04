@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib.colors import CSS4_COLORS
 from random import seed, shuffle
+from test_graphs import layout_seed1, layout_seed2
 
 def refine_labels(graph, node_labels):
     '''
@@ -32,7 +33,7 @@ def refine_labels(graph, node_labels):
 
 
 
-def wl_test(G1, G2, max_iterations=20, visualize=False):
+def wl_test(G1, G2, max_iterations=10, visualize=False):
     '''
     Computes 1-WL test, return True if graphs are isomorphic, False when they are not.
     G1, G2 are graphs parameters.
@@ -49,6 +50,9 @@ def wl_test(G1, G2, max_iterations=20, visualize=False):
     
     g1_labels = {node : G1.degree(node) for node in G1.nodes}
     g2_labels = {node : G2.degree(node) for node in G2.nodes}
+
+    if visualize:
+            draw_color_2_graph(G1, g1_labels, G2, g2_labels)
 
     for i in range(max_iterations):
         g1_labels = refine_labels(G1, g1_labels)
@@ -67,8 +71,7 @@ def wl_test(G1, G2, max_iterations=20, visualize=False):
 
 
 # function for visualizing
-layout_seed1 = 0
-layout_seed2 = 1
+
 seed(1)
 css_colors = list(CSS4_COLORS.keys())
 shuffle(css_colors)
@@ -96,7 +99,7 @@ def draw_color_2_graph(graph1, graph1_labels, graph2, graph2_labels):
         colors_graph2.append(color)
     
     pos_graph1 = nx.spring_layout(graph1, seed=layout_seed1)
-    pos_graph2 = nx.spring_layout(graph1, seed=layout_seed2)
+    pos_graph2 = nx.spring_layout(graph2, seed=layout_seed2)
 
     plt.figure(figsize=(10, 7))
     subax1 = plt.subplot(221)
