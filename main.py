@@ -1,7 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-from color_refinement import *
+import color_refinement
 
 def create_test_graph(nodes_names, edges=None):
     # nodes names [0,1,2,3] - node labelas
@@ -11,7 +11,25 @@ def create_test_graph(nodes_names, edges=None):
     G.add_edges_from(edges)
     return G
 
+def draw_graph(graph):
+    nx.draw(graph, with_labels=True)
+    plt.show()
+
+def draw_2_graphs(graph1, graph2):
+    pos_graph1 = nx.spring_layout(graph1, seed=color_refinement.layout_seed1)
+    pos_graph2 = nx.spring_layout(graph2, seed=color_refinement.layout_seed2)
+
+    subax1 = plt.subplot(121)
+    nx.draw(graph1, pos=pos_graph1, with_labels=True)
+    plt.title("Graph 1")
+    subax2 = plt.subplot(122)
+    nx.draw(graph2, pos=pos_graph2, with_labels=True)
+    plt.title("Graph 2")
+    plt.show()
+
 # real tests will be added
+# TO DO: we can create separate folder that contains tests graphs and then test them in main.py
+#        it is not neccessary if theres a small number of tests graphs
 labels_1 = list(range(10))
 edges_1 = [
     (0, 1), (0, 2), (1, 3), (1, 4), (2, 5),
@@ -26,5 +44,7 @@ edges_2 = [(node_mapping[u], node_mapping[v]) for u, v in edges_1]
 G1 = create_test_graph(labels_1, edges_1)
 G2 = create_test_graph(list(node_mapping.values()), edges_2)
 
-print(wl_test(G1, G2))
+#draw_graph(G1)
+draw_2_graphs(G1, G2)
+print(color_refinement.wl_test(G1, G2, visualize=True))
 

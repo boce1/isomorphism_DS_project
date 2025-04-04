@@ -12,24 +12,24 @@ Each algorithm is implemented in its own separate package, and the main test scr
 ## Project Structure
 
 - `color_refinement/` - Contains the implementation for the Color Refinement algorithm.
-- `bfs_dfs/` - Contains the implementation for marking the adjacency matrix using BFS or DFS.
+- `adjacency_matrix_comparison/` - Contains the implementation for marking the adjacency matrix using BFS or DFS.
 - `vf2/` - Contains the implementation for the VF2 algorithm.
 - `main.py` - The main script that runs the tests for all three algorithms.
 
-# Contributors
+## Contributors
 Each algorithm is implemented by a different contributor, with each contributing one algorithm. The main test script is located in main.py.
 
 Боян Зарев, факултетен номер: 123222004 -`color_refinement/`
 
 Светлин Иванов, факултетен номер: 121222088 - `adjacency_matrix_comparison/`
 
-Ивайлов Николов, факултетен номер: 121222009 - `vf_2`
+Ивайло Николов, факултетен номер: 121222009 - `vf_2/`
 
 ## How to Run
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/boce1/isomorphism_DS_project.git
    ```
 
 2. Install the necessary dependencies (NOTE: python3.x must be added to the PATH variable):
