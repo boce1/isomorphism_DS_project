@@ -2,7 +2,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib.colors import CSS4_COLORS
 from random import seed, shuffle
-from test_graphs import layout_seed1, layout_seed2
+from test_graphs import layout_seed1, layout_seed2, default_node_size
+
 
 def refine_labels(graph, node_labels):
     '''
@@ -33,7 +34,7 @@ def refine_labels(graph, node_labels):
 
 
 
-def wl_test(G1, G2, max_iterations=10, visualize=False):
+def wl_test(G1, G2, max_iterations=10, visualize=False, node_size=default_node_size):
     '''
     Computes 1-WL test, return True if graphs are isomorphic, False when they are not.
     G1, G2 are graphs parameters.
@@ -52,7 +53,7 @@ def wl_test(G1, G2, max_iterations=10, visualize=False):
     g2_labels = {node : G2.degree(node) for node in G2.nodes}
 
     if visualize:
-            draw_color_2_graph(G1, g1_labels, G2, g2_labels)
+            draw_color_2_graph(G1, g1_labels, G2, g2_labels, node_size=node_size)
 
     for i in range(max_iterations):
         g1_labels = refine_labels(G1, g1_labels)
@@ -60,7 +61,7 @@ def wl_test(G1, G2, max_iterations=10, visualize=False):
 
 
         if visualize:
-            draw_color_2_graph(G1, g1_labels, G2, g2_labels)
+            draw_color_2_graph(G1, g1_labels, G2, g2_labels, node_size=node_size)
 
 
         if sorted(g1_labels.values()) == sorted(g2_labels.values()):
@@ -86,7 +87,7 @@ def draw_color_graph(graph, labels):
     nx.draw(graph, pos=pos, with_labels=True, node_color=colors)
     plt.show()
 
-def draw_color_2_graph(graph1, graph1_labels, graph2, graph2_labels):
+def draw_color_2_graph(graph1, graph1_labels, graph2, graph2_labels, node_size=default_node_size):
     colors_graph1 = []
     colors_graph2 = []
 
@@ -103,11 +104,11 @@ def draw_color_2_graph(graph1, graph1_labels, graph2, graph2_labels):
 
     plt.figure(figsize=(10, 7))
     subax1 = plt.subplot(221)
-    nx.draw(graph1, pos=pos_graph1, with_labels=True, node_color=colors_graph1)
+    nx.draw(graph1, pos=pos_graph1, with_labels=True, node_color=colors_graph1, node_size=node_size)
     plt.title("Graph 1")
 
     subax2 = plt.subplot(222)
-    nx.draw(graph2, pos=pos_graph2, with_labels=True, node_color=colors_graph2)
+    nx.draw(graph2, pos=pos_graph2, with_labels=True, node_color=colors_graph2, node_size=node_size)
     plt.title("Graph 2")
 
 

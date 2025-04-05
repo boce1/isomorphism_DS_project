@@ -1,6 +1,6 @@
 import color_refinement
 from test_graphs import *
 
-draw_2_graphs(test6[0], test6[1])
+draw_2_graphs(*test8)
 
-print(color_refinement.wl_test(test6[0], test6[1], visualize=True))
+print(color_refinement.wl_test(*test8, visualize=True, node_size=150))
