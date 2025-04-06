@@ -16,6 +16,7 @@ Each algorithm is implemented in its own separate package, and the main test scr
 - `vf2/` - Contains the implementation for the VF2 algorithm.
 - `test_graphs/` - Contains test graphs and neccessery functions for creating and visualizing them
 - `main.py` - The main script that runs the tests for all three algorithms.
+- `visualized_test/` - Contains pictures from tests (if any could be made).
 
 ## Contributors
 Each algorithm is implemented by a different contributor, with each contributing one algorithm. The main test script is located in main.py.
