@@ -48,19 +48,24 @@ This will execute the tests for all three algorithms and print the results.
 
 # Color Refinement (Weisfeiler-Lehman Test, 1-WL)
 Тестът на Weisfeiler-Lehman поддържа състояние (или цвят) за всеки връх. Той предефинира състоянията на възлите като събира и обобщава информацията на техните им съседи. За да изчисли и предефинира новото състояние на върх, WL използва инективна хеш функция дефинирана в различни обекти по модул на класовете на еквивалентност. Това означава, че обектите се групират в класове на еквивалентност и хеш функцията отчита тази класификация. Ако два обекта принадлежат към един и същи клас на еквивалентност, те ще получат един и същи хеш. 
-
+## Test examples
 ### Test 1:
 ![test 1](./visualized_tests/color_refinement_pictures/test_1/test_1.png)
+
 Phase 1:
 ![test 1 1](./visualized_tests/color_refinement_pictures/test_1/test_1_wl_1.png)
+
 Phase 2:
 ![test 1 2](./visualized_tests/color_refinement_pictures/test_1/test_1_wl_2.png)
 
 ### Test 6:
 ![test 6](./visualized_tests/color_refinement_pictures/test_6/test_6.png)
+
 Phase 1:
 ![test 6 1](./visualized_tests/color_refinement_pictures/test_6/test_6_wl_1.png)
+
 Phase 2:
 ![test 6 2](./visualized_tests/color_refinement_pictures/test_6/test_6_wl_2.png)
+
 Phase 3:
 ![test 6 2](./visualized_tests/color_refinement_pictures/test_6/test_6_wl_3.png)
