@@ -1,8 +1,8 @@
-        Test       |   Isomorphism
-======================================
-Test 1, 1-WL test: |     True
-Test 3, 1-WL test: |     True
-Test 4, 1-WL test: |     True
-Test 5, 1-WL test: |     False
-Test 6, 1-WL test: |     False
-Test 8, 1-WL test: |     False
+| Algo     | Test     | Isomorphism |
+|----------|----------|-------------|
+| 1-WL     | Test 1   | True        |
+| 1-WL     | Test 3   | True        |
+| 1-WL     | Test 4   | True        |
+| 1-WL     | Test 5   | False       |
+| 1-WL     | Test 6   | False       |
+| 1-WL     | Test 8   | False       |
