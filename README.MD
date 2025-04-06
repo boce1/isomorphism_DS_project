@@ -4,7 +4,7 @@
 This project contains implementations of three different algorithms for graph isomorphism checking. The algorithms included are:
 
 1. **Color Refinement (Weisfeiler-Lehman Test, 1-WL)** 
-2. **Marking Adjacency Matrix with BFS/DFS**  
+2. **Adjacency Matrix Comparison**  
 3. **VF2 Algorithm**
 
 Each algorithm is implemented in its own separate package, and the main test script is located in `main.py`.
@@ -12,7 +12,7 @@ Each algorithm is implemented in its own separate package, and the main test scr
 ## Project Structure
 
 - `color_refinement/` - Contains the implementation for the Color Refinement algorithm.
-- `adjacency_matrix_comparison/` - Contains the implementation for marking the adjacency matrix using BFS or DFS.
+- `adjacency_matrix_comparison/` - Contains the implementation for Adjacency Matrix Comparison.
 - `vf2/` - Contains the implementation for the VF2 algorithm.
 - `test_graphs/` - Contains test graphs and neccessery functions for creating and visualizing them
 - `main.py` - The main script that runs the tests for all three algorithms.
@@ -45,3 +45,22 @@ Each algorithm is implemented by a different contributor, with each contributing
    ```
 
 This will execute the tests for all three algorithms and print the results.
+
+# Color Refinement (Weisfeiler-Lehman Test, 1-WL)
+Тестът на Weisfeiler-Lehman поддържа състояние (или цвят) за всеки връх. Той предефинира състоянията на възлите като събира и обобщава информацията на техните им съседи. За да изчисли и предефинира новото състояние на върх, WL използва инективна хеш функция дефинирана в различни обекти по модул на класовете на еквивалентност. Това означава, че обектите се групират в класове на еквивалентност и хеш функцията отчита тази класификация. Ако два обекта принадлежат към един и същи клас на еквивалентност, те ще получат един и същи хеш. 
+
+### Test 1:
+![test 1](./visualized_tests/color_refinement_pictures/test_1/test_1.png)
+Phase 1:
+![test 1 1](./visualized_tests/color_refinement_pictures/test_1/test_1_wl_1.png)
+Phase 2:
+![test 1 2](./visualized_tests/color_refinement_pictures/test_1/test_1_wl_2.png)
+
+### Test 6:
+![test 6](./visualized_tests/color_refinement_pictures/test_6/test_6.png)
+Phase 1:
+![test 6 1](./visualized_tests/color_refinement_pictures/test_6/test_6_wl_1.png)
+Phase 2:
+![test 6 2](./visualized_tests/color_refinement_pictures/test_6/test_6_wl_2.png)
+Phase 3:
+![test 6 2](./visualized_tests/color_refinement_pictures/test_6/test_6_wl_3.png)
