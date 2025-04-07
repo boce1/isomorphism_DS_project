@@ -3,7 +3,7 @@
 
 This project contains implementations of three different algorithms for graph isomorphism checking. The algorithms included are:
 
-1. [**Color Refinement (Weisfeiler-Lehman Test, 1-WL)**](#-color-refinement-(weisfeiler-lehman-test,-1-wl))
+1. [**Color Refinement (Weisfeiler-Lehman Test, 1-WL)**](#color-refinement-weisfeiler-lehman-test-1-wl)
 2. **Adjacency Matrix Comparison**  
 3. **VF2 Algorithm**
 
