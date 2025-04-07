@@ -48,7 +48,39 @@ Each algorithm is implemented by a different contributor, with each contributing
 This will execute the tests for all three algorithms and print the results.
 
 # Color Refinement (Weisfeiler-Lehman Test, 1-WL)
-Тестът на Weisfeiler-Lehman поддържа състояние (или цвят) за всеки връх. Той предефинира състоянията на възлите като събира и обобщава информацията на техните им съседи. За да изчисли и предефинира новото състояние на върх, WL използва инективна хеш функция дефинирана в различни обекти по модул на класовете на еквивалентност. Това означава, че обектите се групират в класове на еквивалентност и хеш функцията отчита тази класификация. Ако два обекта принадлежат към един и същи клас на еквивалентност, те ще получат един и същи хеш. 
+Тестът на Weisfeiler-Lehman поддържа състояние (или цвят) за всеки връх. Той предефинира състоянията на възлите като събира и обобщава информацията на техните им съседи. За да изчисли и предефинира новото състояние на върх, WL използва инективна хеш функция дефинирана в различни обекти по модул на класовете на еквивалентност. Това означава, че обектите се групират в класове на еквивалентност и хеш функцията отчита тази класификация. Ако два обекта принадлежат към един и същи клас на еквивалентност, те ще получат един и същи хеш.
+
+## Fucntions
+   ```python
+   refine_labels(graph, node_labels)
+   ```
+   Args:
+   - graph: (networkX graph) Graph wich labels will be renewed
+   - node_labels: (dict {node_name: int}) classes from previous iteration from "hash function", if there is no prev iteration, the initial labels are node degrees
+   Returns: new_labels
+
+   ```python
+   wl_test(G1, G2, max_iterations=10, visualize=False, node_size=default_node_size)
+   ```
+   Args:
+   - G1: (networkX graph) First graph
+   - G2: (networkX graph) Second graph
+   - max_iterations: (int) Maximum iteration that 1-WL will go through
+   - Visualize: (boolean) If True each step will be visualized (after each step user must close the window to continue)
+   - node_size: (int) Size of nodes in the graph
+   Returns: boolean (Are graphs isomorphic)
+
+   ```python
+   draw_color_2_graph(graph1, graph1_labels, graph2, graph2_labels, node_size=default_node_size)
+   ```
+   Args:
+   - G1: (networkX graph) First graph
+   - graph1_labels: (dict {node_name: int}) classes for nodes in G1
+   - G2: (networkX graph) Second graph
+   - graph2_labels: (dict {node_name: int}) classes for nodes in G2
+   - node_size: (int) Node size
+   Returns: None (Gives 2 graphs and their color chart for nodes classes)
+
 ## Test examples
 ### Test 1:
 ![test 1](./visualized_tests/color_refinement_pictures/test_1/test_1.png)
