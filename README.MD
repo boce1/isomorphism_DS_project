@@ -3,7 +3,7 @@
 
 This project contains implementations of three different algorithms for graph isomorphism checking. The algorithms included are:
 
-1. **Color Refinement (Weisfeiler-Lehman Test, 1-WL)** 
+1. [**Color Refinement (Weisfeiler-Lehman Test, 1-WL)**](#-color-refinement-(weisfeiler-lehman-test,-1-wl))
 2. **Adjacency Matrix Comparison**  
 3. **VF2 Algorithm**
 
@@ -57,6 +57,7 @@ This will execute the tests for all three algorithms and print the results.
    Args:
    - graph: (networkX graph) Graph wich labels will be renewed
    - node_labels: (dict {node_name: int}) classes from previous iteration from "hash function", if there is no prev iteration, the initial labels are node degrees
+
    Returns: new_labels
 
    ```python
@@ -68,6 +69,7 @@ This will execute the tests for all three algorithms and print the results.
    - max_iterations: (int) Maximum iteration that 1-WL will go through
    - Visualize: (boolean) If True each step will be visualized (after each step user must close the window to continue)
    - node_size: (int) Size of nodes in the graph
+
    Returns: boolean (Are graphs isomorphic)
 
    ```python
@@ -79,6 +81,7 @@ This will execute the tests for all three algorithms and print the results.
    - G2: (networkX graph) Second graph
    - graph2_labels: (dict {node_name: int}) classes for nodes in G2
    - node_size: (int) Node size
+
    Returns: None (Gives 2 graphs and their color chart for nodes classes)
 
 ## Test examples
