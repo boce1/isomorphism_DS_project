@@ -1,4 +1,5 @@
 import color_refinement
+import vf_2
 from test_graphs import *
 
 # draw_2_graphs(*test1)
@@ -9,3 +10,5 @@ from test_graphs import *
 
 draw_2_graphs(*test4, node_size=150)
 print("Test 4, 1-WL test: ", color_refinement.wl_test(*test4, visualize=True, node_size=150))
+
+vf_2.vf2_isomorphism(test1)
