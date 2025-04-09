@@ -1,14 +1,6 @@
 import color_refinement
 import vf_2
-from test_graphs import *
+from test_graphs import test1, test2, test3, test4, test5, test6, test7, test8
 
-# draw_2_graphs(*test1)
-# print("Test 1, 1-WL test: ", color_refinement.wl_test(*test1, visualize=True))
-# 
-# draw_2_graphs(*test3)
-# print("Test 3, 1-WL test: ", color_refinement.wl_test(*test3, visualize=True))
-
-draw_2_graphs(*test4, node_size=150)
-print("Test 4, 1-WL test: ", color_refinement.wl_test(*test4, visualize=True, node_size=150))
-
-vf_2.vf2_isomorphism(test1)
+# test algs here
+# TO DO: when all algs are finished, write all test for all algs

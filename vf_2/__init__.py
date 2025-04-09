@@ -1,5 +1,4 @@
 import networkx as nx
-from test_graphs import *
 
 def vf2_isomorphism(graphs):
     '''
