@@ -1,4 +1,5 @@
 import networkx as nx
+import itertools
 
 # def vf2_isomorphism(graphs):
 #     '''
@@ -32,9 +33,13 @@ def extend_mapping(m, p):
         return m
 
 def compute_Pm(m):
-    result = []
-    for node_1 in G1[0]:
-        for node_2 in G2[0]:
-            if (node_1 , node_2) not in m:
-                result.append((node_1, node_2))
-    return result
+    G1_nodes = set([x for x in G1[0] - set([y[0] for y in m])])
+    G2_nodes = set([x for x in G2[0] - set([y[1] for y in m])])
+    T1 = set([x for x in G1_nodes if (x, y[0]) in G1[1] for y in m])
+    T2 = set([x for x in G2_nodes if (x, y[1]) in G2[1] for y in m])
+
+    if not T1 and not T2:
+        return itertools.product(T1, T2)
+    else:
+        return itertools.product(G1_nodes, G2_nodes)
+    
