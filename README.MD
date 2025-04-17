@@ -60,6 +60,7 @@ This will execute the tests for all three algorithms and print the results.
 
    Returns: new_labels
 
+
    ```python
    wl_test(G1, G2, max_iterations=10, visualize=False, node_size=default_node_size)
    ```
@@ -71,6 +72,7 @@ This will execute the tests for all three algorithms and print the results.
    - node_size: (int) Size of nodes in the graph
 
    Returns: boolean (Are graphs isomorphic)
+
 
    ```python
    draw_color_2_graph(graph1, graph1_labels, graph2, graph2_labels, node_size=default_node_size)
@@ -112,38 +114,31 @@ VF2 е алгоритъм, който определя изоморфизма н
 
 ## Fucntions
 
-```python
-   vf2_isomorphism(mapping, iterations)
+   ```python
+   vf2_isomorphism(graph1, graph2)
    ```
    Args:
-   - mapping: list[(a, b)]
-   - iterations: int (max iterations)
+   - graph1: networkX graph
+   - graph2: networkX graph
 
    Returns: bollean (are the graphs isomprphic)
 
 
-```python
-   extend_mapping(m, p)
+   ```python
+   is_feasible(mapping, u, v)
    ```
    Args:
-   - m: list[(a, b)]
-   - p: tuple(a, b) (pair nodes)
+   - mapping: list[(a, b)]
+   - u: node from graph
+   - v: node from graph 
 
-   Returns: list[(a, b)] (new mapping)
+   Returns: boolean (if node u and v can be mapped)
 
-```python
-   compute_Pm(m)
+
+   ```python
+   match(mapping)
    ```
    Args:
-   - m: list[(a, b)]
+   - mapping: list[(a, b)]
 
-   Returns: list[(a, b)] (computes new pairs)
-
-```python
-   cons(m, p) && cut(m, p)
-   ```
-   Args:
-   - m: [(a, b)] (mapping)
-   - p: tuple(a, b) (pair)
-
-   Returns: boleean
+   Returns: bollean (does mapping correspond to connections of graph 1 and 2)
