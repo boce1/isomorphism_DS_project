@@ -4,8 +4,8 @@
 This project contains implementations of three different algorithms for graph isomorphism checking. The algorithms included are:
 
 1. [**Color Refinement (Weisfeiler-Lehman Test, 1-WL)**](#color-refinement-weisfeiler-lehman-test-1-wl)
-2. **Adjacency Matrix Comparison**  
-3. **VF2 Algorithm**
+2. [**Adjacency Matrix Comparison**]
+3. [**VF2 Algorithm**](#vf2)
 
 Each algorithm is implemented in its own separate package, and the main test script is located in `main.py`.
 
@@ -60,6 +60,7 @@ This will execute the tests for all three algorithms and print the results.
 
    Returns: new_labels
 
+
    ```python
    wl_test(G1, G2, max_iterations=10, visualize=False, node_size=default_node_size)
    ```
@@ -71,6 +72,7 @@ This will execute the tests for all three algorithms and print the results.
    - node_size: (int) Size of nodes in the graph
 
    Returns: boolean (Are graphs isomorphic)
+
 
    ```python
    draw_color_2_graph(graph1, graph1_labels, graph2, graph2_labels, node_size=default_node_size)
@@ -105,3 +107,38 @@ Phase 2:
 
 Phase 3:
 ![test 6 2](./visualized_tests/color_refinement_pictures/test_6/test_6_wl_3.png)
+
+
+# VF2
+VF2 е алгоритъм, който определя изоморфизма на два графа като използва техника “разделяй и владей”. При тази техника един проблем се разделя на по-малки такива, което позволява по-ефективното им решение. Целта на VF2 е да състави изображение m: V1 V2 , което е биекция. Най-напред се проверява дали броя върхове |V1| съвпада с броя върхове |V2|. След това се започва с изображение m, което е празно множество. Следващата стъпка е да се генерира декартово произведение от съпоставки (a, b), a element V1, b element V2, които са “кандидати” за добавяне. Всеки един кандидат се проверява дали отговаря на дадени условия и ако отговаря се изпълнява рекурсивно целия алгоритъм като се започва с изображение, към което е добавен конкретния кандидат. Когато броя съпоставки в m стане равен на броя върхове във V1, (|V1|=|V2|), тогава двете графи са изоморфни. Ако след всички обхождания и рекурсии броя съпоставки в m не достигне |V1|, то графите не са изоморфни.
+
+## Fucntions
+
+   ```python
+   vf2_isomorphism(graph1, graph2)
+   ```
+   Args:
+   - graph1: networkX graph
+   - graph2: networkX graph
+
+   Returns: bollean (are the graphs isomprphic)
+
+
+   ```python
+   is_feasible(mapping, u, v)
+   ```
+   Args:
+   - mapping: list[(a, b)]
+   - u: node from graph
+   - v: node from graph 
+
+   Returns: boolean (if node u and v can be mapped)
+
+ 
+   ```python
+   match(mapping)
+   ```
+   Args:
+   - mapping: list[(a, b)]
+
+   Returns: bollean (does mapping correspond to connections of graph 1 and 2)
