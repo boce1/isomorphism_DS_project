@@ -4,8 +4,8 @@
 This project contains implementations of three different algorithms for graph isomorphism checking. The algorithms included are:
 
 1. [**Color Refinement (Weisfeiler-Lehman Test, 1-WL)**](#color-refinement-weisfeiler-lehman-test-1-wl)
-2. **Adjacency Matrix Comparison**  
-3. **VF2 Algorithm**
+2. [**Adjacency Matrix Comparison**]
+3. [**VF2 Algorithm**](#vf2)
 
 Each algorithm is implemented in its own separate package, and the main test script is located in `main.py`.
 
@@ -105,3 +105,45 @@ Phase 2:
 
 Phase 3:
 ![test 6 2](./visualized_tests/color_refinement_pictures/test_6/test_6_wl_3.png)
+
+
+# VF2
+VF2 е алгоритъм, който определя изоморфизма на два графа като използва техника “разделяй и владей”. При тази техника един проблем се разделя на по-малки такива, което позволява по-ефективното им решение. Целта на VF2 е да състави изображение m: V1 V2 , което е биекция. Най-напред се проверява дали броя върхове |V1| съвпада с броя върхове |V2|. След това се започва с изображение m, което е празно множество. Следващата стъпка е да се генерира декартово произведение от съпоставки (a, b), a element V1, b element V2, които са “кандидати” за добавяне. Всеки един кандидат се проверява дали отговаря на дадени условия и ако отговаря се изпълнява рекурсивно целия алгоритъм като се започва с изображение, към което е добавен конкретния кандидат. Когато броя съпоставки в m стане равен на броя върхове във V1, (|V1|=|V2|), тогава двете графи са изоморфни. Ако след всички обхождания и рекурсии броя съпоставки в m не достигне |V1|, то графите не са изоморфни.
+
+## Fucntions
+
+```python
+   vf2_isomorphism(mapping, iterations)
+   ```
+   Args:
+   - mapping: list[(a, b)]
+   - iterations: int (max iterations)
+
+   Returns: bollean (are the graphs isomprphic)
+
+
+```python
+   extend_mapping(m, p)
+   ```
+   Args:
+   - m: list[(a, b)]
+   - p: tuple(a, b) (pair nodes)
+
+   Returns: list[(a, b)] (new mapping)
+
+```python
+   compute_Pm(m)
+   ```
+   Args:
+   - m: list[(a, b)]
+
+   Returns: list[(a, b)] (computes new pairs)
+
+```python
+   cons(m, p) && cut(m, p)
+   ```
+   Args:
+   - m: [(a, b)] (mapping)
+   - p: tuple(a, b) (pair)
+
+   Returns: boleean
