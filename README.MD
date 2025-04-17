@@ -134,7 +134,7 @@ VF2 е алгоритъм, който определя изоморфизма н
 
    Returns: boolean (if node u and v can be mapped)
 
-
+ 
    ```python
    match(mapping)
    ```

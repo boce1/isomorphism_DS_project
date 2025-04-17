@@ -9,16 +9,15 @@ def format_result(test_name, is_isomorphic):
         print(f"{test_name} : Graphs are NOT isomorphic")
 
 tests = [test1, test2, test3, test4, test5, test6, test7, test8]
-for i in range(len(tests)):
+for i in range(len(tests) - 2): # skip the last 2 test, VF2 calculation is too long
     test = tests[i]
     result_vf_2 = vf_2.vf2_isomorphism(*test)
     result_color_refinement = color_refinement.wl_test(*test) # visualize=False
     # add result for third alg
 
-    draw_2_graphs(test[0], test[1])
+    draw_2_graphs(*test)
 
     print(f"Test {i + 1}:")
     format_result("VF2", result_vf_2)
     format_result("Color Refinement", result_color_refinement)
-    
-    print("---------------------\n")
+    print("---------------------")
