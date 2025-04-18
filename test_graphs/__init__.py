@@ -69,4 +69,8 @@ test7 = (test7_g1, test7_g2)
 test8_g1 = create_test_graph(non_isomorphic_test4["graph1"]["labels"], non_isomorphic_test4["graph1"]["edges"])
 test8_g2 = create_test_graph(non_isomorphic_test4["graph2"]["labels"], non_isomorphic_test4["graph2"]["edges"])
 test8 = (test8_g1, test8_g2)
+
+test9_g1 = create_test_graph(non_isomorphic_test5["graph1"]["labels"], non_isomorphic_test5["graph1"]["edges"])
+test9_g2 = create_test_graph(non_isomorphic_test5["graph2"]["labels"], non_isomorphic_test5["graph2"]["edges"])
+test9 = (test9_g1, test9_g2)
 # # #

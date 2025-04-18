@@ -96,4 +96,15 @@ non_isomorphic_test4 = {
         "edges" : [(i, (i+2) % 15) for i in range(50)]
     }
 }
+
+non_isomorphic_test5 = {
+    "graph1" : {
+        "labels" : list(range(6)),
+        "edges" : [(0,1), (0,2), (2,4), (4,5), (5,3), (3,1)]
+    },
+    "graph2": {
+        "labels" : list(range(6)),
+        "edges" : [(0,1), (0,2), (1,2), (3,4), (3,5), (4,5)]
+    }
+}
 # # #
