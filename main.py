@@ -1,7 +1,8 @@
 from networkx.algorithms import isomorphism
 import color_refinement
 import vf_2
-from test_graphs import test1, test2, test3, test4, test5, test6, test7, test8, test9, draw_2_graphs, draw_graph
+import adjacency_matrix_comparison
+from test_graphs import test1, test2, test3, test4, test5, test6, test7, test8, test9, draw_2_graphs
 
 def format_result(test_name, is_isomorphic):
     if is_isomorphic:
@@ -10,9 +11,14 @@ def format_result(test_name, is_isomorphic):
         print(f"{test_name} : Graphs are NOT isomorphic")
 
 tests = [test1, test2, test3, test4, test5, test6, test7, test8, test9]
-for i in range(len(tests)): # skip the last 2 test, VF2 calculation is too long
+for i in range(len(tests)):
     test = tests[i]
-
+    g1, g2 = test
+    
+    # Convert to adjacency matrices
+    adj1 = adjacency_matrix_comparison.convert_graph_to_adj_matrix(g1)
+    adj2 = adjacency_matrix_comparison.convert_graph_to_adj_matrix(g2)
+    
     if i not in (6,7): # test 7 and 8
         result_vf_2 = vf_2.vf2_isomorphism(*test)
     else:
@@ -20,15 +26,18 @@ for i in range(len(tests)): # skip the last 2 test, VF2 calculation is too long
         result_vf_2 = GM.is_isomorphic()
         
     result_color_refinement = color_refinement.wl_test(*test)
-    # add result for third alg
+    result_adj_matrix = adjacency_matrix_comparison.are_isomorphic(adj1, adj2)
 
     draw_2_graphs(*test)
     print(f"Test {i + 1}:")
 
-
     format_result("VF2", result_vf_2)
     format_result("Color Refinement", result_color_refinement)
+    format_result("Adjacency Matrix", result_adj_matrix)
 
     print("---------------------")
+    
+    if i == len(tests) - 1:
+        input("Press Enter to close")
 
 # test 9 - 1-WL doesnt always recognize non-isomorphic graphs. The solution is to go to high order extentions. Nodes need to have multiple characteristics. 

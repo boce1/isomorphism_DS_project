@@ -4,7 +4,7 @@
 This project contains implementations of three different algorithms for graph isomorphism checking. The algorithms included are:
 
 1. [**Color Refinement (Weisfeiler-Lehman Test, 1-WL)**](#color-refinement-weisfeiler-lehman-test-1-wl)
-2. [**Adjacency Matrix Comparison**]
+2. [**Adjacency Matrix Comparison**](#adjacency-matrix-comparison)
 3. [**VF2 Algorithm**](#vf2)
 
 Each algorithm is implemented in its own separate package, and the main test script is located in `main.py`.
@@ -142,3 +142,51 @@ VF2 е алгоритъм, който определя изоморфизма н
    - mapping: list[(a, b)]
 
    Returns: bollean (does mapping correspond to connections of graph 1 and 2)
+
+# Adjacency Matrix Comparison
+
+Алгоритъмът за сравнение на графи чрез **матрици на съседство** проверява изоморфизъм между два графа, като ги представя във вид на матрици и анализира тяхната структура. Това включва проверка на степени на върховете, сума на ребрата и спектрални характеристики (собствени стойности на матриците).
+
+Методът е интуитивен и подходящ за бърза предварителна проверка, но не гарантира коректно разпознаване на изоморфизъм във всички случаи. Затова често се използва като част от комбиниран подход, заедно с по-мощни алгоритми като VF2 или Weisfeiler-Lehman (WL) тестване.
+
+## Functions
+
+### `are_isomorphic(adj1, adj2, timeout=5)`
+
+## Функции
+
+### `are_isomorphic(adj1, adj2)`
+
+Проверява дали два графа са изоморфни, използвайки техните матрици на съседство. Алгоритъмът извършва поредица от структурни проверки.
+
+**Аргументи:**
+- `adj1`: `List[List[int]]` – матрица на съседство на първия граф
+- `adj2`: `List[List[int]]` – матрица на съседство на втория граф
+
+**Връща:** `bool` – `True`, ако графите могат да бъдат изоморфни, иначе `False`
+
+---
+
+### `basic_checks_pass(adj1, adj2)`
+
+Извършва предварителни проверки за:
+- еднакъв брой върхове и ребра
+- съвпадение на степените на върховете
+- съвпадение на спектралните характеристики (по собствени стойности на матриците)
+
+**Аргументи:**
+- `adj1`: матрица на съседство на първия граф
+- `adj2`: матрица на съседство на втория граф
+
+**Връща:** `bool` – `True`, ако графите преминават всички базови проверки
+
+---
+
+### `convert_graph_to_adj_matrix(graph)`
+
+Преобразува граф от `networkx` формат в матрица на съседство.
+
+**Аргументи:**
+- `graph`: `networkx.Graph` – граф за преобразуване
+
+**Връща:** `List[List[int]]` – матрица на съседство, представяща графа
