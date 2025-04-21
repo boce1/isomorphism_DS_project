@@ -6,10 +6,10 @@ def are_isomorphic(adj1, adj2):
     if len(adj1) != len(adj2):
         return False
     
-    n = len(adj1)
-    
     if not basic_checks_pass(adj1, adj2):
         return False
+    
+    return True
 
 def basic_checks_pass(adj1, adj2):
     n = len(adj1)
