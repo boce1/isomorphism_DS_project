@@ -14,11 +14,7 @@ tests = [test1, test2, test3, test4, test5, test6, test7, test8, test9]
 for i in range(len(tests)):
     test = tests[i]
     g1, g2 = test
-    
-    # Convert to adjacency matrices
-    adj1 = adjacency_matrix_comparison.convert_graph_to_adj_matrix(g1)
-    adj2 = adjacency_matrix_comparison.convert_graph_to_adj_matrix(g2)
-    
+
     if i not in (6,7): # test 7 and 8
         result_vf_2 = vf_2.vf2_isomorphism(*test)
     else:
@@ -26,7 +22,7 @@ for i in range(len(tests)):
         result_vf_2 = GM.is_isomorphic()
         
     result_color_refinement = color_refinement.wl_test(*test)
-    result_adj_matrix = adjacency_matrix_comparison.are_isomorphic(adj1, adj2)
+    result_adj_matrix = adjacency_matrix_comparison.adjacency_matrix_comparison_test(*test)
 
     draw_2_graphs(*test)
     print(f"Test {i + 1}:")
@@ -39,5 +35,3 @@ for i in range(len(tests)):
     
     if i == len(tests) - 1:
         input("Press Enter to close")
-
-# test 9 - 1-WL doesnt always recognize non-isomorphic graphs. The solution is to go to high order extentions. Nodes need to have multiple characteristics. 

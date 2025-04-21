@@ -1,8 +1,11 @@
 import numpy as np
-from itertools import permutations
 
-def are_isomorphic(adj1, adj2):
+def adjacency_matrix_comparison_test(g1, g2):
     """Check if two graphs are isomorphic by comparing adjacency matrices"""
+
+    adj1 = convert_graph_to_adj_matrix(g1)
+    adj2 = convert_graph_to_adj_matrix(g2)
+
     if len(adj1) != len(adj2):
         return False
     
