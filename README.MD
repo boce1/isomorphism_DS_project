@@ -151,14 +151,14 @@ VF2 е алгоритъм, който определя изоморфизма н
 ## Functions
 
    ```python
-   are_isomorphic(adj1, adj2):
+   convert_graph_to_adj_matrix(g1, g2):
    ```
 
    Check if two graphs are isomorphic by comparing adjacency matrices
 
    **Arguments:**
-   - `adj1`: `List[List[int]]` – adjacency matrix of the first graph
-   - `adj2`: `List[List[int]]` – adjacency matrix of the second graph
+   - `g1`: networkX graph
+   - `g2`: networkX graph
 
    **Return:** `bool` - `True` if the graphs can be isomorphic, otherwise `False`
 
