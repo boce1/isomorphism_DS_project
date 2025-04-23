@@ -180,3 +180,6 @@ VF2 е алгоритъм, който определя изоморфизма н
    - `graph`: `networkx.Graph` – conversion graph
 
    **Return:** `List[List[int]]` – adjacency matrix representing the graph
+
+# PDF project
+![pdf document](./DS_proekt.docx.pdf)
