@@ -182,4 +182,4 @@ VF2 е алгоритъм, който определя изоморфизма н
    **Return:** `List[List[int]]` – adjacency matrix representing the graph
 
 # PDF project
-![pdf document](./DS_proekt.docx.pdf)
+[View PDF](./DS_proekt.docx.pdf)
