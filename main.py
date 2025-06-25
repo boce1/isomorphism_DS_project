@@ -13,7 +13,6 @@ def format_result(test_name, is_isomorphic):
 tests = [test1, test2, test3, test4, test5, test6, test7, test8, test9]
 for i in range(len(tests)):
     test = tests[i]
-    g1, g2 = test
 
     if i not in (6,7): # test 7 and 8
         result_vf_2 = vf_2.vf2_isomorphism(*test)
